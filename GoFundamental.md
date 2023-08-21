@@ -9,11 +9,15 @@ go get github.com/numaproj/numaflow-go@44ff06c
 
 Reference: https://stackoverflow.com/questions/53682247/how-to-point-go-module-dependency-in-go-mod-to-a-latest-commit-in-a-repo
 
-### A trick to ensure an object implements an interface
+### 2. A trick to ensure an object implements an interface
 
 Sometimes you see it at the top of a go file and you think: "Why do we put it on this line?" It's because we want to explicitly ensure this struct `client` is an implementation of the interface `Client`.
 
 ```go
 var _ Client = (*client)(nil)
 ```
+
+### 3. How to upgrade go version
+
+https://github.com/numaproj/numaflow/pull/966/files
 
