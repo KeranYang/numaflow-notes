@@ -17,7 +17,26 @@ Sometimes you see it at the top of a go file and you think: "Why do we put it on
 var _ Client = (*client)(nil)
 ```
 
-### 3. How to upgrade go version
+### 3. How to upgrade Go version
 
 https://github.com/numaproj/numaflow/pull/966/files
 
+### 4. The flag library
+
+Within container, we can use flag library to read input configurations from command line.
+
+```go
+var prefixStr string
+flag.StringVar(&prefixStr, "prefix", "test-payload-", "Prefix of the payload")
+flag.Parse()
+simpleSource := impl.NewSimpleSource(prefixStr)
+```
+
+On Numaflow template, we can declare container as follow:
+
+```yaml
+image: quay.io/numaio/numaflow-go/source-simple-source:v0.5.2
+args: ["--prefix=abc-"]
+```
+
+The UDSource will then use `abc-` instead of default `test-payload-`, as its message payload prefix.
