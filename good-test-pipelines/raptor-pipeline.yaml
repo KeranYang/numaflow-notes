@@ -1,0 +1,44 @@
+apiVersion: numaflow.numaproj.io/v1alpha1
+kind: Pipeline
+metadata:
+  name: raptor-pipeline
+spec:
+  vertices:
+    - name: in
+      scale:
+        min: 10
+      source:
+        # A self data generating source
+        generator:
+          msgSize: 1
+          rpu: 2000
+          duration: 1s
+      containerTemplate:
+        env:
+          - name: NUMAFLOW_DEBUG
+            value: "true" # DO NOT forget the double quotes!!!
+    - name: first-cat
+      scale:
+        min: 20
+      udf:
+        builtin:
+          name: cat # A built-in UDF which simply cats the message
+      containerTemplate:
+        env:
+          - name: NUMAFLOW_DEBUG
+            value: "true" # DO NOT forget the double quotes!!!
+    - name: out
+      scale:
+        min: 20
+      sink:
+        # A simple log printing sink
+        log: {}
+      containerTemplate:
+        env:
+          - name: NUMAFLOW_DEBUG
+            value: "true" # DO NOT forget the double quotes!!!
+  edges:
+    - from: in
+      to: first-cat
+    - from: first-cat
+      to: out
