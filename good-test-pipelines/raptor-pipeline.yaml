@@ -3,10 +3,16 @@ kind: Pipeline
 metadata:
   name: raptor-pipeline
 spec:
+  templates:
+    daemon:
+      containerTemplate:
+        env:
+          - name: NUMAFLOW_DEBUG
+            value: "true" # DO NOT forget the double quotes!!!
   vertices:
     - name: in
       scale:
-        min: 10
+        min: 20
       source:
         # A self data generating source
         generator:
@@ -29,7 +35,7 @@ spec:
             value: "true" # DO NOT forget the double quotes!!!
     - name: out
       scale:
-        min: 20
+        min: 10
       sink:
         # A simple log printing sink
         log: {}
