@@ -40,3 +40,36 @@ args: ["--prefix=abc-"]
 ```
 
 The UDSource will then use `abc-` instead of default `test-payload-`, as its message payload prefix.
+
+### 5. The % sign
+
+`%d` -> integer value
+
+`%f` -> floating point
+
+`%s` -> plain string
+
+`%v` -> default format
+
+`%w` -> Enabling **WRAPPING** errors
+
+Wrapping an error with `%w` makes it available to `errors.Is` and `errors.As`: (More details in [Working with Errors](https://go.dev/blog/go1.13-errors))
+
+```go
+err := fmt.Errorf("access denied: %w", ErrPermission)
+...
+if errors.Is(err, ErrPermission) ...
+```
+
+
+
+
+
+5567 0978 8958 1666
+
+oct 10th 25
+
+Qianbo
+
+765
+

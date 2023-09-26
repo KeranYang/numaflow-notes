@@ -1,0 +1,31 @@
+apiVersion: numaflow.numaproj.io/v1alpha1
+kind: Pipeline
+metadata:
+  name: multi-partition-pipeline
+spec:
+  templates:
+    daemon:
+      containerTemplate:
+        env:
+          - name: NUMAFLOW_DEBUG
+            value: "true" # DO NOT forget the double quotes!!!
+  vertices:
+    - name: in
+      scale:
+        min: 5
+      source:
+        # A self data generating source
+        generator:
+          msgSize: 1
+          rpu: 1
+          duration: 1s
+    - name: out
+      partitions: 5
+      scale:
+        min: 5
+      sink:
+        # A simple log printing sink
+        log: {}
+  edges:
+    - from: in
+      to: out

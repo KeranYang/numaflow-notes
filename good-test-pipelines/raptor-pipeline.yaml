@@ -17,7 +17,7 @@ spec:
         # A self data generating source
         generator:
           msgSize: 1
-          rpu: 2000
+          rpu: 1
           duration: 1s
       containerTemplate:
         env:
