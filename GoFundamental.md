@@ -61,15 +61,14 @@ err := fmt.Errorf("access denied: %w", ErrPermission)
 if errors.Is(err, ErrPermission) ...
 ```
 
+### 6. go mod
 
-
-
-
-5567 0978 8958 1666
-
-oct 10th 25
-
-Qianbo
-
-765
+```bash
+# Start a new module
+go mod init module_name
+# Add dependency
+go get
+# clean up and ensure "go.sum" files are up-to-date
+go mod tidy
+```
 

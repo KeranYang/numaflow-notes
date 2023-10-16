@@ -67,7 +67,7 @@ There is an error occurring on the server side, hence `pending` returns an error
   * The scaler can't get a pending count.
   * The scaler [doesn't do anything](https://github.com/numaproj/numaflow/blob/main/pkg/reconciler/vertex/scaling/scaling.go#L254). **ALSO GOOD.**
 
-### FAQ
+### MISC
 
 * For sources that are NOT scalable, like HTTP, how do we set the replica count?
 
@@ -81,5 +81,5 @@ Yes. It will. Because when a vertex has been scaled down to 0 for a certain amou
 
 * How is the change tested?
 
-TODO
+Tested with a user-defined Kafka source. Verified that the source vertex can scale.
 
