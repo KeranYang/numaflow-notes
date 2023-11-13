@@ -72,3 +72,9 @@ go get
 go mod tidy
 ```
 
+7. How to create a library Golang repo
+
+```bash
+go mod init github.com/numaproj-contrib/numaflow-utils-go
+```
+
