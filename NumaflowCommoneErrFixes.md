@@ -13,5 +13,18 @@ build:
 	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -v -o osam-apigw-numa .
 ```
 
+2. ```
+   panic: failed to create runtime-env.js file: write /opt/numaflow/runtime-env.js: no space left on device
+   ```
+
+   Root Cause: It's because local docker runs out of spaces
+
+   Fix:
+
+```
+docker system prune
+```
+
+
 
 
