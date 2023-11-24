@@ -33,6 +33,13 @@ docker system prune
 
    Fix: Remove the replica property and re-create.
 
+4. ```
+   kafka server: The provider group protocol type is incompatible with the other members
+   ```
 
+   Root Cause: Numaflow changed kafka BalanceStrategy from round-robin in v0.8 to range in v1.0.
 
+   Fix: Changing the consumer group name.
+
+5. ```
 
