@@ -41,5 +41,18 @@ docker system prune
 
    Fix: Changing the consumer group name.
 
-5. ```
+5. > Can I have an example pipeline which reads from kafka and writes to kafka?
+   
+   Yes, take a look at: https://github.intuit.com/oss-analytics/sample-dataflow-deployment/blob/master/environments/prd-usw2-eks/kafka-rw.yaml
+
+6. > What are the recommended/supported jetstream version by numaflow version x.x.x?
+
+   Please refer to https://github.intuit.com/oss-analytics/numaproj/blob/main/docs/numaflow/versions.md
+
+
+
+
+
+
+
 
