@@ -1,4 +1,4 @@
-### Numa common errors and fixes
+### Numaflow common errors and fixes
 
 1. ```
    exec /usr/bin/udbx: exec format error
@@ -24,6 +24,14 @@ build:
 ```
 docker system prune
 ```
+
+3. ```
+   panic: failed to create side inputs KV "dev-devx-o11yabstractgs-use2-qal-o11y-mesh-gs-pipeline_SIDE_INPUTS", nats: replicas > 1 not supported in non-clustered mode
+   ```
+
+   Root Cause: ISBSVC is created on a single node mode. It is probably because user creates the ISBSVC by specifying replica = 1.
+
+   Fix: Remove the replica property and re-create.
 
 
 
