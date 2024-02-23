@@ -34,7 +34,7 @@ ssh-add --apple-use-keychain ~/.ssh/id_ed25519
 ```
 kyang5@macos-L56MLHQWQ4 ~ % gh auth login                                 
 ? What account do you want to log into? GitHub Enterprise Server
-? GHE hostname: github.intuit.com
+? GHE hostname: github.intuit.com (or github.dev.intuit.com, depending on your case)
 ? You're already logged into github.intuit.com. Do you want to re-authenticate? Yes
 ? What is your preferred protocol for Git operations? SSH
 ? Upload your SSH public key to your GitHub account? /Users/kyang5/.ssh/id_ed25519.pub
