@@ -38,5 +38,11 @@ Once we finish the testing, we should roll back the version updates before publi
 * Roll back all the pom.xml changes.
 * Clean up testing artifacts, e.g. images that are no longer used etc.
 
+## Install and Use a newer version of java sdk
 
+Use [sdkman](https://sdkman.io/) to install and manage multiple versions of Java SDK.
 
+```bash
+sdk list java
+sdk install java [Identifier] # e.g. sdk install java 21.0.4-amzn
+```
