@@ -54,6 +54,17 @@ docker image tag quay.io/keranyang/numaflow:v23.0.0 docker.intuit.com/personal/k
 docker push docker.intuit.com/personal/keran/numaflow:v23.0.0
 ```
 
+If getting the following error - 
+```
+unauthorized: User is unauthorized to upload to docker-local/personal/keran/numaflow/_uploads
+```
+
+* go to jfrog - Edit Profile - Generate token
+* docker login docker.intuit.com
+* use intuit email as user name, token as password
+* login successfully
+* try again
+
 Use Lens to update the Numaflow images
 
 * Go to numaflow-system namespace
